@@ -18,7 +18,7 @@ st.info("⚠️ This is a prototype demo. Predictions may not be 100% accurate."
 # ------------------ ABOUT SECTION ------------------
 with st.expander("📌 About this App"):
     st.write("""
-    CareerLens AI helps you:
+    Kaushal AI helps you:
     - 🎯 Predict suitable career paths  
     - 📊 Analyze your skills  
     - 🧠 Get AI-based recommendations  
