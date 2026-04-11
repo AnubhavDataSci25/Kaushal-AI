@@ -6,11 +6,15 @@
   'use strict';
 
   // ── Experience range slider ──────────────────────────────
+  const STAGGER_DELAY_MS = 80;   // stagger between fade-in cards
+  const SCROLL_DELAY_MS  = 200;  // delay before auto-scrolling to result
+
   const slider = document.getElementById('experience_years');
   const expLabel = document.getElementById('expLabel');
   if (slider && expLabel) {
     slider.addEventListener('input', () => {
-      expLabel.textContent = slider.value + ' yr' + (slider.value === '1' ? '' : 's');
+      const yrs = parseInt(slider.value, 10);
+      expLabel.textContent = yrs + ' yr' + (yrs === 1 ? '' : 's');
     });
   }
 
@@ -86,7 +90,7 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          setTimeout(() => entry.target.classList.add('visible'), i * STAGGER_DELAY_MS);
           observer.unobserve(entry.target);
         }
       });
@@ -101,7 +105,7 @@
   const resultEl = document.querySelector('.result-section');
   if (resultEl) {
     window.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' }), 200);
+      setTimeout(() => resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' }), SCROLL_DELAY_MS);
     });
   }
 
