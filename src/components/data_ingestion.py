@@ -23,7 +23,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Data Ingestion Started")
         try:
-            df = pd.read_csv('notebook\data\career_dataset_10k.csv')
+            df = pd.read_csv('notebook\data\career_dataset_20k.csv')
             logging.info("Dataset read successfully")
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
