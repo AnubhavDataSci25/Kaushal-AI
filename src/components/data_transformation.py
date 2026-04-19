@@ -97,14 +97,11 @@ class DataTransformation:
 
     def get_data_transformer_obj(self, available_columns=None):
         try:
-            if available_columns is None:
-                available_columns = []
-
             num_features = ['experience_years', 'projects_count']
             cat_features_ohe = ['education', 'interests', 'certification', 'learning_source', 'dominant_project_domain']
             skills_feature_mlb = ['skills']
 
-            if available_columns:
+            if available_columns is not None:
                 available_columns = set(available_columns)
                 num_features = [col for col in num_features if col in available_columns]
                 cat_features_ohe = [col for col in cat_features_ohe if col in available_columns]
